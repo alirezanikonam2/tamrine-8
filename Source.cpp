@@ -1,92 +1,102 @@
 #include<iostream>
-#include<fstream>
+#include<fstream>>
 #include<string>
 using namespace std;
 
 
 int main(){
-	int j = 0, k = 0,b=0;
-	string buf;
-	struct mo{
-		int code = 0;
-		string name = "";
-		int ghey = 0;
-		int kilo = 0;
-	};
+	int k = 0,m=0,b=0,z=0;
+	string buf, bufs;
 
-	mo mive[3];
+	ifstream in("list1.txt");
+	
 
-	ifstream in("fil.txt");
 
-	while (getline(in, buf))
+	struct moshakhasat{
+		int shenase = 0;
+		string nam = "";
+		int gheymat = 0;
+		int meghdar = 0;
+
+	}mive[3];
+
+
+	
+	
+		
+
+
+
+	
+
+	cout << "1-namayesh  ";
+	cin >> m;
+
+	if (m == 1)
 	{
-		string word[4];
-		k++;
-		for (int i = 0; i < buf.size(); i++)
+		
+
+	
+
+		while (getline(in, buf))
 		{
-			if (buf[i] == ',')
+
+			string x[4];
+			int j = 0;
+			for (int i = 0; i <= buf.size(); i++)
 			{
 
-				switch (j)
+
+
+
+				if (buf[i] != ','&&i < buf.length())
+					x[j] += buf[i];
+
+				else
 				{
 
-				case 0:
-					mive[j].code = stoi(word[j]);
+					switch (j)
+					{
 
+					case 0:
+						mive[k].shenase = stoi(x[j]);
+						break;
+					case 1:
+						mive[k].nam = x[j];
+						break;
 
-				case 1:
-					mive[j].name = word[j];
+					case 2:
+						mive[k].gheymat = stoi(x[j]);
+						break;
 
+					case 3:
+						mive[k].meghdar = stoi(x[j]);
+						break;
 
-				case 2:
-					mive[j].ghey = stoi(word[j]);
+					}
 
-
-				case 3:
-					mive[j].kilo = stoi(word[j]);
-
+					j++;
 
 				}
 
-				j++;
+
+
 			}
 
-				if (buf[i] != ',')
-				{
-					word[j] += buf[i];
-				}
-
-
-
-				}
-				
-		
-		
+			k++;
 		}
-		
-	
-	in.close();
 
 
-	for (int f = 0; f < 3; f++)
-	{
-		cout << mive[f].code << endl << mive[f].name << endl << mive[f].ghey << endl << mive[f].kilo << endl;
+		for (int n = 0; n < 3; n++)
+		{
+
+			cout << mive[n].shenase << endl << mive[n].nam << endl << mive[n].gheymat << endl << mive[n].meghdar << endl;
+
+		}
+
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
 
 
 
@@ -94,4 +104,6 @@ int main(){
 
 	system("pause");
 	return 0;
+
 }
+
